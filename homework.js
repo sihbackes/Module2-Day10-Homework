@@ -89,6 +89,9 @@ Write a piece of code for programmatically removing the last skill from the skil
 */
 console.log("\n------------------------EXERCISE G -------------------------");
 
+me.skills.pop();
+console.log(me.skills);
+
 // JS Functions
 
 /* EXERCISE 1
@@ -96,13 +99,31 @@ console.log("\n------------------------EXERCISE G -------------------------");
 Write a function called dice; it should randomize an integer number between 1 and 6.
 
 */
+console.log("\n------------------------EXERCISE 1 -------------------------");
+
+function dice() {
+  let random = Math.floor(Math.random() * 6) + 1;
+  return random;
+}
+
+console.log(dice());
 
 /* EXERCISE 2
 
 Write a function called whoIsBigger which receives 2 numbers as parameters and returns the biggest one.
 
 */
+console.log("\n------------------------EXERCISE 2 -------------------------");
 
+function whoIsBigger(a, b) {
+  if (a > b) {
+    return `The biggest number is ${a}.`;
+  } else if (a < b) {
+    return `The biggest number is ${b}.`;
+  }
+}
+
+console.log(whoIsBigger(9, 2));
 /* EXERCISE 3
 
 Write a function called splitMe which receives a string as a parameter and returns an array with every word in that string.
@@ -110,6 +131,13 @@ Write a function called splitMe which receives a string as a parameter and retur
 Ex.: splitMe("I love coding") => returns ["I", "Love", "Coding"]
 
 */
+console.log("\n------------------------EXERCISE 3 -------------------------");
+
+function splitMe(string) {
+  let phrase = string;
+  return phrase.split(" ");
+}
+console.log(splitMe("I love coding"));
 
 /* EXERCISE 4
 
@@ -118,6 +146,19 @@ Write a function called deleteOne which receives a string and a boolean as param
 If the boolean value is true it should return the string without the first letter, otherwise it should remove the last one from it.
 
 */
+console.log("\n------------------------EXERCISE 4 -------------------------");
+
+function deleteOne(string, boolean) {
+  if (boolean === true) {
+    let result = string;
+    return result.substring(1, result.length);
+  } else if (boolean === false) {
+    let result = string;
+    return result.substring(0, result.length - 1);
+  }
+}
+console.log(deleteOne("simone", true));
+console.log(deleteOne("simone", false));
 
 /* EXERCISE 5
 
@@ -126,6 +167,7 @@ Write a function called onlyLetters which receives a string as a parameter and r
 Ex.: onlyLetters("I have 4 dogs") => returns "I have dogs"
 
 */
+console.log("\n------------------------EXERCISE 5 -------------------------");
 
 /* EXERCISE 6
 
