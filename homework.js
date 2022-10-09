@@ -182,11 +182,57 @@ Write a function called isThisAnEmail which receives a string as a parameter and
 
 */
 console.log("\n------------------------EXERCISE 6 -------------------------");
+
+function isThisAnEmail(email) {
+  let valid = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+  if (valid.test(email)) {
+    return "This is a valid Email.";
+  } else {
+    return "This is an invalid Email.";
+  }
+}
+
+console.log(isThisAnEmail("simomebackesv@gmail.com"));
+console.log(isThisAnEmail("simome"));
 /* EXERCISE 7
 
 Write a function called whatDayIsIt that should return the current day of the week.
 
 */
+console.log("\n------------------------EXERCISE 7 -------------------------");
+
+function whatDayIsIt() {
+  let today = new Date();
+  let dayOfTheWeek = today.getUTCDay();
+  switch (dayOfTheWeek) {
+    case 0:
+      return "Today is Sunday";
+      break;
+    case 1:
+      return "Today is Monday";
+      break;
+    case 2:
+      return "Today is Tuesday";
+      break;
+    case 3:
+      return "Today is Wednesday";
+      break;
+    case 4:
+      return "Today is Thursday";
+      break;
+    case 5:
+      return "Today is Friday";
+      break;
+    case 6:
+      return "Today is Saturday";
+      break;
+    default:
+      return "I don't know what day is today.";
+      break;
+  }
+}
+
+console.log(whatDayIsIt());
 
 /* EXERCISE 8
 
@@ -207,18 +253,41 @@ values: [3, 3, 4]
 }
 
 */
+console.log("\n------------------------EXERCISE 8 -------------------------");
 
+function rollTheDices(number) {
+  let loop = 0;
+  let array = [];
+  while (loop < number) {
+    let random = Math.floor(Math.random() * 6) + 1;
+    array.push(random);
+    loop++;
+  }
+
+  console.log(array);
+
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i];
+  }
+  return sum;
+}
+
+console.log(rollTheDices(5));
 /* EXERCISE 9
 
 Write a function called howManyDays which receives a date as a parameter and returns the number of days passed since that date.
 
 */
 
+console.log("\n------------------------EXERCISE 9 -------------------------");
+
 /* EXERCISE 10
 
 Write a function called isTodayMyBirthday which should return true if today’s your birthday, false otherwise.
 
 */
+console.log("\n------------------------EXERCISE 10 -------------------------");
 
 // JS Arrays & Objects
 
@@ -231,7 +300,7 @@ Write a function called deleteProp which receives an object and a string as para
 and returns the given object after deleting its property named as the given string.
 
 */
-
+console.log("\n------------------------EXERCISE 11 -------------------------");
 /* EXERCISE 12
 
 Write a function called oldestMovie which finds the oldest movie in the provided movies array.
