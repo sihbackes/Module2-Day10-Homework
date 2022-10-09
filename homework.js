@@ -680,6 +680,19 @@ Write a function called "removeIndex" which receives a number as a parameter and
 
 */
 console.log("\n------------------------EXERCISE 20 -------------------------");
+
+function removeIndex(number) {
+  let index = number;
+  if (index >= 0 && index <= 13) {
+    delete movies[index];
+    return movies;
+  } else {
+    return `Choose a number from 0 to 13.`;
+  }
+}
+
+console.log(removeIndex(17));
+
 // [EXTRAS] JS Advanced
 
 /* EXERCISE 21
@@ -720,6 +733,18 @@ Create a function called "isItPrime" that receives a number as a parameter and r
 
 */
 console.log("\n------------------------EXERCISE 23 -------------------------");
+function isItPrime(parameter) {
+  let number = parameter;
+  let dividers = 0;
+
+  for (let count = 1; count <= number; count++)
+    if (number % count == 0) dividers++;
+
+  if (dividers == 2) return `${number} is a prime number`;
+  else return `${number} is not a prime number`;
+}
+
+console.log(isItPrime(1));
 /* WHEN YOU ARE FINISHED
 
 Commit and push the code to your personal GitHub repository; then post the link of your commit on the Homework section of today’s Eduflow.
