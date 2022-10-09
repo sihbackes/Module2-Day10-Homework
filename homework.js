@@ -282,12 +282,52 @@ Write a function called howManyDays which receives a date as a parameter and ret
 
 console.log("\n------------------------EXERCISE 9 -------------------------");
 
+function howManyDays(date) {
+  let split = date.split("/");
+  let day = split[0];
+  let month = split[1];
+  let year = split[2];
+
+  let fixDate = new Date(month + "/" + day + "/" + year);
+  let today = new Date();
+
+  let diff = today.getTime() - fixDate.getTime();
+
+  let daydiff = diff / (1000 * 60 * 60 * 24);
+
+  return Math.floor(daydiff);
+}
+
+console.log(howManyDays("08/10/2022"));
+console.log(howManyDays("18/12/2020"));
 /* EXERCISE 10
 
 Write a function called isTodayMyBirthday which should return true if today’s your birthday, false otherwise.
 
 */
 console.log("\n------------------------EXERCISE 10 -------------------------");
+
+function isTodayMyBirthday(date) {
+  let split = date.split("/");
+  let day = split[0];
+  let month = split[1];
+  let year = split[2];
+
+  let fixDate = new Date(month + "/" + day + "/" + year);
+  let today = new Date();
+
+  let diff = today.getTime() - fixDate.getTime();
+
+  let daydiff = diff / (1000 * 60 * 60 * 24);
+
+  if (Math.floor(daydiff) === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(isTodayMyBirthday("10/10/2022"));
+console.log(isTodayMyBirthday("05/11/2022"));
 
 // JS Arrays & Objects
 
@@ -301,11 +341,25 @@ and returns the given object after deleting its property named as the given stri
 
 */
 console.log("\n------------------------EXERCISE 11 -------------------------");
+
+let personalData = {
+  name: "Simone",
+  surname: "Backes",
+  age: 31,
+};
+
+function deleteProp(oneObect, string) {
+  delete oneObect[string];
+  return oneObect;
+}
+
+console.log(deleteProp(personalData, "surname"));
 /* EXERCISE 12
 
 Write a function called oldestMovie which finds the oldest movie in the provided movies array.
 
 */
+console.log("\n------------------------EXERCISE 12 -------------------------");
 
 /* EXERCISE 13
 
