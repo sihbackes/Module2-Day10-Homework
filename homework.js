@@ -102,7 +102,7 @@ Write a function called dice; it should randomize an integer number between 1 an
 console.log("\n------------------------EXERCISE 1 -------------------------");
 
 function dice() {
-  let random = Math.floor(Math.random() * 6) + 1;
+  let random = Math.floor(Math.random() * 6 + 1);
   return random;
 }
 
@@ -234,6 +234,11 @@ function whatDayIsIt() {
 
 console.log(whatDayIsIt());
 
+////////// HOMEWORK SOLUTION  ///////////
+// const whatDayIsIt = function () {
+//   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+//   return days[new Date().getDay()];
+// };
 /* EXERCISE 8
 
 Write a function called rollTheDices which receives a number as a parameter.
@@ -300,6 +305,16 @@ function howManyDays(date) {
 
 console.log(howManyDays("08/10/2022"));
 console.log(howManyDays("18/12/2020"));
+//////////////////////HOMEWORK SOLUTION////////////////////
+// const howManyDays = function(selectedDate) {
+//   let today = Date.now();
+//   let selectedInMilliseconds = Date.parse(selectedDate) //ms
+//   return Math.floor((today - selectedInMilliseconds) / (1000 * 60 * 60 * 24))
+// };
+
+// let date = howManyDays(("6 Jun 1998"))
+
+// console.log(date)
 /* EXERCISE 10
 
 Write a function called isTodayMyBirthday which should return true if today’s your birthday, false otherwise.
@@ -328,6 +343,19 @@ function isTodayMyBirthday(date) {
 }
 console.log(isTodayMyBirthday("10/10/2022"));
 console.log(isTodayMyBirthday("05/11/2022"));
+//////////////////////HOMEWORK SOLUTION////////////////////
+// const isTodayMyBirthday = function () {
+//   let today = new Date();
+//   let myBirthday = new Date(1986, 8, 2);
+//   let isTodayMyBirthday = false;
+//   if (
+//     today.getDay() === myBirthday.getDay() &&
+//     today.getMonth() === myBirthday.getMonth()
+//   ) {
+//     isTodayMyBirthday = true;
+//   }
+//   return isTodayMyBirthday;
+// };
 
 // JS Arrays & Objects
 
@@ -576,6 +604,18 @@ function oldestMovie2() {
 }
 
 console.log(oldestMovie2());
+//////////////////////HOMEWORK SOLUTION////////////////////
+// const oldestMovie = function () {
+//   let result = { Year: 2100 };
+//   for (let i = 0; i < movies.length; i++) {
+//     let currentYear = parseInt(movies[i].Year);
+//     if (currentYear < result.Year) {
+//       result = movies[i];
+//     }
+//   }
+
+//   return result;
+// };
 /* EXERCISE 13
 
 Write a function called countMovies which returns the number of movies contained in the provided movies array.
@@ -599,6 +639,11 @@ function countMovies2() {
   return `This list has ${howMany} movies.`;
 }
 console.log(countMovies2());
+
+////////////////////// HOMEWORK SOLUTION///////////////////
+// const countMovies = function () {
+//   return movies.length;
+// };
 /* EXERCISE 14
 
 Write a function called onlyTheTitles which creates an array with just the titles of the movies contained in the provided movies array.
@@ -674,6 +719,24 @@ and another array unmatch with all the remaining ones.
 
 */
 console.log("\n------------------------EXERCISE 19 -------------------------");
+////////////////////////HOMEWORK SOLUTION ////////////////////
+const searchAndDivide = function (word) {
+  let result = {
+    match: [],
+    unmatch: [],
+  };
+  for (let i = 0; i < movies.length; i++) {
+    if (movies[i].Title.indexOf(word) !== -1) {
+      result.match.push(movies[i]);
+    } else {
+      result.unmatch.push(movies[i]);
+    }
+  }
+  return result;
+};
+
+console.log(searchAndDivide("simone"));
+
 /* EXERCISE 20
 
 Write a function called "removeIndex" which receives a number as a parameter and returns the provided movies array without the element in the given position.
@@ -711,6 +774,17 @@ halfTree(3)
 
 */
 console.log("\n------------------------EXERCISE 21 -------------------------");
+//////////////////////// HOMEWORK SOLUTION//////////////////
+const halfTree = function (height) {
+  for (let i = 0; i < height; i++) {
+    let toPrint = "";
+    for (let j = 0; j < i + 1; j++) {
+      toPrint += "*";
+    }
+    console.log(toPrint);
+  }
+};
+console.log(halfTree(5));
 /* EXERCISE 22
 
 Create a function called "tree" which receives a number as a parameter and builds an "*" tree with the given height.
@@ -726,7 +800,16 @@ tree(3)
 *****
 
 */
+//////////////////////// HOMEWORK SOLUTION//////////////////
 console.log("\n------------------------EXERCISE 22 -------------------------");
+const tree = function (height) {
+  for (let i = 0; i < height; i++) {
+    let stars = "*".repeat(2 * i + 1);
+    let spacesBefore = " ".repeat(height - i - 1);
+    console.log(spacesBefore + stars);
+  }
+};
+console.log(tree(10));
 /* EXERCISE 23
 
 Create a function called "isItPrime" that receives a number as a parameter and returns true if the given number is a prime number.
